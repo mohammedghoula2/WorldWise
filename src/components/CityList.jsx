@@ -1,12 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
+import { useCities } from '../Contexts/CitiesContext.jsx';
 import CityItem from './CityItem';
 import styles from './CityList.module.css';
 import Message from './Message';
 import Spinner from './Spinner';
 
 // eslint-disable-next-line react/prop-types
-function CityList({ cities, isLoading }) {
+function CityList() {
+  const { cities, isLoading } = useCities();
   if (isLoading) return <Spinner />;
 
   if (!cities.length)
